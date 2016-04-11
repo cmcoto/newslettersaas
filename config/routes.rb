@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :issues
   resources :newsletters
   resources :links
   # The priority is based upon order of creation: first created -> highest priority.
