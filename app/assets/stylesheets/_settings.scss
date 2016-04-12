@@ -75,6 +75,10 @@ $print-transparent-backgrounds: true;
 
 @include add-foundation-colors;
 
+$purple: #9F51DB;
+$orange: #F7680F;
+$gray: #333349;
+
 // 2. Breakpoints
 // --------------
 
@@ -559,8 +563,9 @@ $tooltip-radius: $global-radius;
 // -----------
 
 $topbar-padding: 0.5rem;
-$topbar-background: $light-gray;
+$topbar-background: $gray;
 $topbar-submenu-background: $topbar-background;
 $topbar-title-spacing: 1rem;
 $topbar-input-width: 200px;
 $topbar-unstack-breakpoint: medium;
+$topbar-title-color: $white;

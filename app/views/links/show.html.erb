@@ -1,19 +1,24 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+	<div class="large-8 columns">
 
-<p>
-  <strong>Title:</strong>
-  <%= @link.title %>
-</p>
+		<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @link.content %>
-</p>
+		<p>
+		  <strong>Title:</strong>
+		  <%= @link.title %>
+		</p>
 
-<p>
-  <strong>Url:</strong>
-  <%= @link.url %>
-</p>
+		<p>
+		  <strong>Content:</strong>
+		  <%= @link.content %>
+		</p>
 
-<%= link_to 'Edit', edit_link_path(@link) %> |
-<%= link_to 'Back', links_path %>
+		<p>
+		  <strong>Url:</strong>
+		  <%= @link.url %>
+		</p>
+
+		<%= link_to 'Edit', edit_link_path(@link) %> |
+		<%= link_to 'Back', links_path %>
+	</div>
+</div>

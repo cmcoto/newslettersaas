@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
-<div class="col-md-12">
-  <h2><i class="glyphicon glyphicon-fire"></i>Curated Links <span class="badge"><%= @links.size %></span></a></h2>
+<div class="row">
+  <h2><i class="glyphicon glyphicon-fire"></i>Curated Links <span class="success badge"><%= @links.size %></span></a></h2>
   <% @links.each do |link| %>
-      <%= link.title %>
+      <h4><%= link.title %></h4>
 
       <small><a href= "<%= link.url %>"><%= link.url %> </small>
       <div class="pull-right">
@@ -12,7 +12,7 @@
         <% end %>
         
         <small><i class="glyphicon glyphicon-plus-sign"></i></small>
-        <span class="label label-warning"><%= link_to 'Delete', link_path(:id => link.id), :method => :delete %></span>
+        <button class="alert hollow tiny button"><%= link_to 'Delete', link_path(:id => link.id), :method => :delete %></button>
         <small><i class="glyphicon glyphicon-trash"></i></small>
         
       </div>

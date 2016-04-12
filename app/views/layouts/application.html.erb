@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Newslettersaas" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
@@ -12,6 +12,24 @@
   </head>
 
   <body>
+    <div class="top-bar">
+  <div class="top-bar-title">
+    <span data-responsive-toggle="responsive-menu" data-hide-for="medium">
+      <button class="menu-icon dark" type="button" data-toggle></button>
+    </span>
+    <strong>Newslettersaas</strong>
+  </div>
+  <div id="responsive-menu">
+    <div class="top-bar-right">
+      <ul class="dropdown menu" data-dropdown-menu>
+        <li><%= link_to 'Links', links_path %></li>
+        <li><%= link_to 'Issues', issues_path %></li>
+        <li><%= link_to 'Newsletters', newsletters_path %></li>
+      </ul>
+    </div>
+    
+  </div>
+</div>
 
     <%= yield %>
 
