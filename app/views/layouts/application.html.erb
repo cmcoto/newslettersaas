@@ -8,7 +8,34 @@
 </head>
 <body>
 
-<%= yield %>
+<header class="container">
+  <nav class="navbar navbar-default">
+    <div class="navbar-header">
+      <%= link_to 'Home Newslettersaas', root_path, class: 'navbar-brand' %>
+    </div>
+      <% if user_signed_in? %>
+      <div class="pull-right right-buttons">
+        <%= link_to 'Sign out', destroy_user_session_path, method: 'delete', class: 'btn btn-default navbar-btn' %>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        
+        <li><%= link_to 'New Link', new_link_path %></li>
+        <li><%= link_to 'New Issue', new_issue_path %></li>
+        <li><%= link_to 'New Newsletter', new_newsletter_path %></li>
+      </ul>
+    <% end %>
+  </nav>
+  
+</header>
 
+<div class="container">
+	<% flash.each do |name, msg| %>
+	  <%= content_tag :div, msg, class: "alert alert -#(name)" %>
+	<% end %>
+
+	<div class="row">
+		<%= yield %>
+	</div>
+</div>
 </body>
 </html>
