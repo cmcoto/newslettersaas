@@ -1,34 +1,28 @@
 <p id="notice"><%= notice %></p>
 <div class="row">
   <h2><i class="glyphicon glyphicon-fire"></i>Curated Links <span class="success badge"><%= @links.size %></span></a></h2>
+  <%= link_to 'New Link', new_link_path %>
+   
   <% @links.each do |link| %>
-      <h4><%= link.title %></h4>
+  <div class="callout">
+  <h5><%= link.title %></h5>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis doloremque rem odio tempora nemo fugit quisquam ex aut cum, recusandae accusamus maxime, ad ullam perspiciatis, impedit illum rerum. Et, accusamus.</p>
+   <a href= "<%= link.url %>"><%= link.url %></a>
 
-      <small><a href= "<%= link.url %>"><%= link.url %> </small>
-      <div class="pull-right">
-        <small><%= link_to 'Show', link %></small>
-        <%= link_to edit_link_path(link), class: "icon-link" do %>
-          <small><i class="glyphicon glyphicon-cog"></i></small>
-        <% end %>
+   <small><%= link_to 'Show', link %></small>
+    <%= link_to edit_link_path(link), class: "icon-link" do %>
+    <small><i class="glyphicon glyphicon-cog"></i></small>
+    <% end %>
+    <button class="alert hollow tiny button"><%= link_to 'Delete', link_path(:id => link.id), :method => :delete %></button>
+    <p class="Date">
+            Submitted <%= time_ago_in_words(link.created_at) %>
+    </p>
+    <small><p>Curated by: </p></small>
         
-        <small><i class="glyphicon glyphicon-plus-sign"></i></small>
-        <button class="alert hollow tiny button"><%= link_to 'Delete', link_path(:id => link.id), :method => :delete %></button>
-        <small><i class="glyphicon glyphicon-trash"></i></small>
-        
-      </div>
-    </h3>
-
-    <ul class="list-group">
-      <li class="list-group-item"> <%= link.content %></li>
-      <p class="Date">
-        Submitted <%= time_ago_in_words(link.created_at) %>
-      </p>
-      <small><p>Curated by: </p></small>
-    </ul>
+  </div>
   <% end %>
-
+  
 
 </div>
 
 
-<%= link_to 'New Link', new_link_path %>
