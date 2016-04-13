@@ -6,7 +6,7 @@
   <% @links.each do |link| %>
   <div class="callout">
   <h5><%= link.title %></h5>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis doloremque rem odio tempora nemo fugit quisquam ex aut cum, recusandae accusamus maxime, ad ullam perspiciatis, impedit illum rerum. Et, accusamus.</p>
+  <p><%= link.content %></p>
    <a href= "<%= link.url %>"><%= link.url %></a>
 
    <small><%= link_to 'Show', link %></small>
@@ -15,7 +15,7 @@
     <% end %>
     <button class="alert hollow tiny button"><%= link_to 'Delete', link_path(:id => link.id), :method => :delete %></button>
     <p class="Date">
-            Submitted <%= time_ago_in_words(link.created_at) %>
+            <small>Submitted <%= time_ago_in_words(link.created_at) %></small>
     </p>
     <small><p>Curated by: </p></small>
         
