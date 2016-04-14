@@ -17,7 +17,7 @@
     <p class="Date">
             <small>Submitted <%= time_ago_in_words(link.created_at) %></small>
     </p>
-    <small><p>Curated by: </p></small>
+    <small>Curated by: <%= link.user.email %></small>
         
   </div>
   <% end %>
