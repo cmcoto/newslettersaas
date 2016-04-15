@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
+
+  resources :issues do
+    resources :links
+  end
   resources :issues
   resources :newsletters
   resources :links

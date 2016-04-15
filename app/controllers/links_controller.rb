@@ -1,6 +1,6 @@
 class LinksController < ApplicationController
   before_action :set_link, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   # GET /links
   # GET /links.json
   def index
@@ -61,12 +61,18 @@ class LinksController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+ #Probando set el issue.
+    def setissue
+      @link.issue = Issue.last
+      @link.issue.save
+    end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_link
       @link = Link.find(params[:id])
     end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def link_params
