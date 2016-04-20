@@ -11,15 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160415022109) do
+ActiveRecord::Schema.define(version: 20160420173139) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "drafts", force: :cascade do |t|
+    t.string   "item_type",      null: false
+    t.integer  "item_id",        null: false
+    t.string   "event",          null: false
+    t.string   "whodunnit"
+    t.text     "object"
+    t.text     "previous_draft"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "drafts", ["created_at"], name: "index_drafts_on_created_at", using: :btree
+  add_index "drafts", ["event"], name: "index_drafts_on_event", using: :btree
+  add_index "drafts", ["item_id"], name: "index_drafts_on_item_id", using: :btree
+  add_index "drafts", ["item_type"], name: "index_drafts_on_item_type", using: :btree
+  add_index "drafts", ["updated_at"], name: "index_drafts_on_updated_at", using: :btree
+  add_index "drafts", ["whodunnit"], name: "index_drafts_on_whodunnit", using: :btree
+
   create_table "issues", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.string   "title"
+    t.integer  "draft_id"
+    t.datetime "published_at"
+    t.datetime "trashed_at"
   end
 
   create_table "links", force: :cascade do |t|
