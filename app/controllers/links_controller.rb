@@ -64,7 +64,7 @@ class LinksController < ApplicationController
  #Probando set el issue.
     def setissue
       @link.issue = Issue.last
-      @link.issue.save
+      @link.save
     end
   
   private
@@ -76,6 +76,6 @@ class LinksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def link_params
-      params.require(:link).permit(:title, :content, :url)
+      params.require(:link).permit(:title, :content, :url, :issue_id)
     end
 end

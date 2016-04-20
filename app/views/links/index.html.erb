@@ -19,6 +19,8 @@
             <small>Submitted <%= time_ago_in_words(link.created_at) %></small>
     </p>
     <small>Curated by: <%= link.user.email %></small>
+    <small>Issue id: <%= link.issue.title %></small>
+
         
   </div>
   <% end %>

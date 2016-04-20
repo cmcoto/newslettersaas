@@ -1,0 +1,20 @@
+<%= form_for @Link.new do |f| %>
+<% if @link.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@link.errors.count, "error") %> prohibited this link from being updated with Issue:</h2>
+
+      <ul>
+      <% @link.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="field">
+  <%= f.label :issue_id %>
+  <%= f.collection_select :issue_id, Issue.all, :id, :title %>
+</div>
+<div class="actions">
+    <%= f.submit %>
+</div>
+<% end %>
