@@ -39,6 +39,17 @@ gem 'draftsman', '~> 0.4.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'guard' 
+  gem 'guard-livereload'
+  gem 'guard-rspec'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
+  gem 'shoulda-matchers'
+  gem 'apartment'
+  gem 'letter_opener'
+  gem 'email_spec'
 end
 
 group :development do
