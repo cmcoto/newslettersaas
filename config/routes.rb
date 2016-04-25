@@ -11,7 +11,8 @@ class SubdomainBlank
 end
 
 Rails.application.routes.draw do
-  constraints(SubdomainPresent) do  
+  constraints(SubdomainPresent) do 
+    root 'links#index', as: :subdomain_root 
     devise_for :users
 
     resources :accounts
@@ -27,7 +28,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   constraints(SubdomainBlank) do
     root 'welcome#index'
-  resources :accounts, only: [:new, :create]
+    resources :accounts, only: [:new, :create]
   end
   
 end
